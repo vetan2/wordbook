@@ -1,0 +1,10 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "lint": {},
+    "test": {},
+    "type-check": {
+      "inputs": ["**/*.{ts,tsx}"]
+    }
+  }
+}
