@@ -17,7 +17,7 @@ const compat = new FlatCompat({
 /** @type {import("eslint").Linter.Config[]}  */
 export default [
   {
-    ignores: [".expo/", "android/", "ios/", "node_modules"],
+    ignores: [".expo/", "android/", "ios/", "app-example"],
   },
   ...compat.extends(),
   ...kurateh.configs.react,
