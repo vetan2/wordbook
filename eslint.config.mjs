@@ -17,7 +17,14 @@ const compat = new FlatCompat({
 /** @type {import("eslint").Linter.Config[]}  */
 export default [
   {
-    ignores: [".expo/", "android/", "ios/", "app-example"],
+    ignores: [
+      ".expo/",
+      "android/",
+      "ios/",
+      "app-example/",
+      "node_modules/",
+      "**/*.json",
+    ],
   },
   ...compat.extends(),
   ...kurateh.configs.react,
@@ -112,7 +119,7 @@ export default [
     },
   },
   {
-    files: ["app/**/*.ts*"],
+    files: ["src/app/**/*.ts*"],
 
     rules: {
       "react/function-component-definition": [

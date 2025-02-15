@@ -1,0 +1,6 @@
+{
+  "cSpell.words": ["gluestack", "nativewind"],
+  "tailwindCSS.experimental.classRegex": [
+    ["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ]
+}
