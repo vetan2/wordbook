@@ -4,7 +4,7 @@ import { GluestackUIProvider } from "~/providers/gluestack-ui-provider";
 
 import "./global.css";
 
-export default function RootLayout() {
+function App() {
   return (
     <GluestackUIProvider>
       <Stack>
@@ -18,3 +18,12 @@ export default function RootLayout() {
     </GluestackUIProvider>
   );
 }
+
+let AppEntryPoint = App;
+
+if (process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === "true") {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  AppEntryPoint = require("../../.storybook").default;
+}
+
+export default AppEntryPoint;
