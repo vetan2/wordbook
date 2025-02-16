@@ -6,8 +6,8 @@ import {
   CheckboxIndicator,
   CheckboxLabel,
   CheckboxIcon,
-} from "@/shared/ui";
-import { Button, ButtonText } from "@/shared/ui/Button";
+} from "~/shared/ui";
+import { Button, ButtonText } from "~/shared/ui/Button";
 
 export default function Index() {
   return (

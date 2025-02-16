@@ -4,7 +4,7 @@ import { OverlayProvider } from "@gluestack-ui/overlay";
 import { ToastProvider } from "@gluestack-ui/toast";
 import React, { useEffect, useLayoutEffect } from "react";
 
-import { gluestackConfig } from "@/shared/gluestack/config";
+import { gluestackConfig } from "~/shared/gluestack/config";
 
 import { script } from "./script";
 

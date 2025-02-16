@@ -9,7 +9,7 @@ import {
   type ViewProps,
 } from "react-native";
 
-import { gluestackConfig } from "@/shared/gluestack/config";
+import { gluestackConfig } from "~/shared/gluestack/config";
 
 type ModeType = "light" | "dark" | "system";
 
