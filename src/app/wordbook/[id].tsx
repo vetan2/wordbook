@@ -1,4 +1,4 @@
-import { Stack, useLocalSearchParams } from "expo-router";
+import { Link, Stack, useLocalSearchParams } from "expo-router";
 import { pipe } from "fp-ts/lib/function";
 import { useMemo } from "react";
 import { FlatList, View } from "react-native";
@@ -25,17 +25,19 @@ export default function Wordbook() {
         contentContainerClassName="gap-2 pr-4"
         data={wordbook.wordIds}
         renderItem={({ item: id }) => (
-          <Button variant="outline" className="ml-4">
-            {pipe(
-              words.filter(({ id: wordId }) => wordId === id)[0],
-              ({ words, meanings }) => (
-                <>
-                  <ButtonText>{words.join(" / ")}</ButtonText>
-                  <ButtonText>{meanings.join(" / ")}</ButtonText>
-                </>
-              ),
-            )}
-          </Button>
+          <Link href={`/word/${id}`} asChild>
+            <Button variant="outline" className="ml-4">
+              {pipe(
+                words.filter(({ id: wordId }) => wordId === id)[0],
+                ({ words, meanings }) => (
+                  <>
+                    <ButtonText>{words.join(" / ")}</ButtonText>
+                    <ButtonText>{meanings.join(" / ")}</ButtonText>
+                  </>
+                ),
+              )}
+            </Button>
+          </Link>
         )}
       />
     </View>
