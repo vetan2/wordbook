@@ -16,6 +16,6 @@ module.exports = withStorybook(
     enabled: process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === "true",
     configPath: path.resolve(__dirname, "./.storybook"),
     onDisabledRemoveStorybook:
-      process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === "true",
+      process.env.EXPO_PUBLIC_STORYBOOK_ENABLED !== "true",
   },
 );
