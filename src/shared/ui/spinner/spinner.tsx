@@ -35,7 +35,7 @@ export interface SpinnerProps
 }
 
 export const Spinner = forwardRef<
-  ElementRef<typeof Progress.Circle>,
+  ElementRef<typeof Progress.CircleSnail>,
   SpinnerProps
 >(({ size = "md", ...originalProps }, ref) => {
   const [props, variantProps] = mapPropsVariants(
