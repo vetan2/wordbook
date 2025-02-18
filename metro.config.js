@@ -10,16 +10,12 @@ const { withNativeWind } = require("nativewind/metro");
 /** @type {import('expo/metro-config').MetroConfig} */
 const config = getDefaultConfig(__dirname, {});
 
-// add nice web support with optimizing compiler + CSS extraction
-module.exports = withStorybook(
-  withNativeWind(config, { input: "./src/app/global.css" }),
-);
-
 module.exports = withStorybook(
   withNativeWind(config, { input: "./src/app/global.css" }),
   {
     enabled: process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === "true",
     configPath: path.resolve(__dirname, "./.storybook"),
-    onDisabledRemoveStorybook: true,
+    onDisabledRemoveStorybook:
+      process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === "true",
   },
 );
