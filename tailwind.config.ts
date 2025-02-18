@@ -5,7 +5,7 @@ import { type DarkModeConfig } from "tailwindcss/types/config";
 
 export default {
   darkMode: (process.env.DARK_MODE as DarkModeConfig | undefined) ?? "media",
-  content: ["./src/**/*.{js,jsx,ts,tsx}", "./storybook/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "./.storybook/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
   safelist: [
     {

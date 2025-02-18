@@ -1,7 +1,10 @@
 {
   "cSpell.words": ["gluestack", "nativewind"],
   "tailwindCSS.experimental.classRegex": [
-    ["tva\\((([^()]*|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    [
+      "tv\\(([^)(]*(?:\\([^)(]*(?:\\([^)(]*(?:\\([^)(]*\\)[^)(]*)*\\)[^)(]*)*\\)[^)(]*)*)\\)",
+      "\"(.*?)\""
+    ],
     ["c[nx]\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
   ],
   "[typescript]": {
@@ -9,5 +12,9 @@
   },
   "[typescriptreact]": {
     "editor.formatOnSave": false
-  }
+  },
+  "tailwindCSS.codeActions": false,
+  "tailwindCSS.validate": false,
+  "tailwindCSS.lint.recommendedVariantOrder": "ignore",
+  "tailwindCSS.hovers": true
 }

@@ -12,7 +12,7 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <View className="flex justify-start p-2">
+      <View className="mt-20 flex items-center p-2">
         <Story />
       </View>
     ),
