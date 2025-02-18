@@ -24,6 +24,7 @@ export default [
       "app-example/",
       "node_modules/",
       "**/*.json",
+      ".storybook/storybook.requires.ts",
     ],
   },
   ...compat.extends(),

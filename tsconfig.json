@@ -15,7 +15,8 @@
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
     "eslint.config.mjs",
-    "nativewind-env.d.ts"
+    "nativewind-env.d.ts",
+    ".storybook/**/*.ts*"
   ],
-  "exclude": ["app-example"]
+  "exclude": ["app-example", ".storybook/storybook.requires.ts"]
 }
