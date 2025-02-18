@@ -18,7 +18,6 @@ cssInterop(Progress.CircleSnail, {
     target: "style",
     nativeStyleToProp: {
       color: "color",
-      width: "size",
     },
   },
 });
