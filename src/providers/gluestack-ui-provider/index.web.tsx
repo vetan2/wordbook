@@ -1,10 +1,7 @@
 "use client";
-import { setFlushStyles } from "@gluestack-ui/nativewind-utils/flush";
 import { OverlayProvider } from "@gluestack-ui/overlay";
 import { ToastProvider } from "@gluestack-ui/toast";
 import React, { useEffect, useLayoutEffect } from "react";
-
-import { gluestackConfig } from "~/shared/gluestack/config";
 
 import { script } from "./script";
 
@@ -26,22 +23,22 @@ export const GluestackUIProvider = ({
   mode?: "light" | "dark" | "system";
   children?: React.ReactNode;
 }) => {
-  let cssVariablesWithMode = ``;
-  Object.keys(gluestackConfig).forEach((configKey) => {
-    cssVariablesWithMode +=
-      configKey === "dark" ? `\n .dark {\n ` : `\n:root {\n`;
-    const cssVariables = Object.keys(
-      gluestackConfig[configKey as keyof typeof gluestackConfig],
-    ).reduce((acc: string, curr: string) => {
-      return (
-        acc +
-        `${curr}:${gluestackConfig[configKey as keyof typeof gluestackConfig][curr]}; `
-      );
-    }, "");
-    cssVariablesWithMode += `${cssVariables} \n}`;
-  });
+  // let cssVariablesWithMode = ``;
+  // Object.keys(gluestackConfig).forEach((configKey) => {
+  //   cssVariablesWithMode +=
+  //     configKey === "dark" ? `\n .dark {\n ` : `\n:root {\n`;
+  //   const cssVariables = Object.keys(
+  //     gluestackConfig[configKey as keyof typeof gluestackConfig],
+  //   ).reduce((acc: string, curr: string) => {
+  //     return (
+  //       acc +
+  //       `${curr}:${gluestackConfig[configKey as keyof typeof gluestackConfig][curr]}; `
+  //     );
+  //   }, "");
+  //   cssVariablesWithMode += `${cssVariables} \n}`;
+  // });
 
-  setFlushStyles(cssVariablesWithMode);
+  // setFlushStyles(cssVariablesWithMode);
 
   const handleMediaQuery = React.useCallback((e: MediaQueryListEvent) => {
     script(e.matches ? "dark" : "light");
@@ -75,7 +72,7 @@ export const GluestackUIProvider = ({
         let style = head?.querySelector(`[id='${variableStyleTagId}']`);
         if (!style) {
           style = createStyle(variableStyleTagId);
-          style.innerHTML = cssVariablesWithMode;
+          // style.innerHTML = cssVariablesWithMode;
           if (head) head.appendChild(style);
         }
       }

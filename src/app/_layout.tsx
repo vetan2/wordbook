@@ -6,7 +6,7 @@ import "./global.css";
 
 function App() {
   return (
-    <GluestackUIProvider>
+    <GluestackUIProvider mode="light">
       <Stack>
         <Stack.Screen
           name="(tabs)"
