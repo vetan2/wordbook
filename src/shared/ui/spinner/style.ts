@@ -1,8 +1,9 @@
-import { tv, type VariantProps } from "@heroui/theme";
+import { type VariantProps } from "@gluestack-ui/nativewind-utils";
+import { tva } from "@gluestack-ui/nativewind-utils/tva";
 
-export const spinnerStyle = tv({
+export const spinnerStyle = tva({
   slots: {
-    wrapper: "justify-center items-center",
+    wrapper: "items-center justify-center",
     spinner: "",
   },
   variants: {
@@ -25,6 +26,7 @@ export const spinnerStyle = tv({
   defaultVariants: {
     color: "default",
   },
+  parentVariants: {},
 });
 
 export type SpinnerVariantProps = VariantProps<typeof spinnerStyle>;
