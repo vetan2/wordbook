@@ -1,7 +1,7 @@
 import { type SlotsToClasses } from "@heroui/theme";
 import { cssInterop } from "nativewind";
 import { type ComponentPropsWithRef, type ElementRef, forwardRef } from "react";
-import { View } from "react-native";
+import { Platform, View } from "react-native";
 import * as Progress from "react-native-progress";
 import { match } from "ts-pattern";
 
@@ -18,6 +18,7 @@ cssInterop(Progress.CircleSnail, {
     target: "style",
     nativeStyleToProp: {
       color: "color",
+      width: "size",
     },
   },
 });
@@ -55,12 +56,14 @@ export const Spinner = forwardRef<
         indeterminate
         ref={ref}
         {...props}
-        className={slots.spinner({ class: props.classNames?.spinner })}
-        size={match(variantProps.size)
-          .with("sm", () => 20)
-          .with("md", () => 32)
-          .with("lg", () => 40)
-          .exhaustive()}
+        className={slots.spinner({
+          class: props.classNames?.spinner,
+        })}
+        size={match({ size: variantProps.size, platform: Platform.OS })
+          .with({ platform: "web", size: "sm" }, () => 20)
+          .with({ platform: "web", size: "md" }, () => 32)
+          .with({ platform: "web", size: "lg" }, () => 40)
+          .otherwise(() => undefined)}
         thickness={match(variantProps.size)
           .with("sm", () => 2.5)
           .with("md", () => 3.5)
