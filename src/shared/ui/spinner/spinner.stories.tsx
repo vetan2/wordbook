@@ -43,7 +43,7 @@ const meta: Meta<typeof Spinner> = {
     },
   },
   args: {
-    color: "default",
+    color: "primary",
     animating: true,
     duration: 1000,
     spinDuration: 5000,
