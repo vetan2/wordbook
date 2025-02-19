@@ -107,6 +107,11 @@ export default [
               ],
               message: 'Use the custom Button component from "~/shared/ui".',
             },
+            {
+              name: "@gluestack-ui/nativewind-utils",
+              importNames: ["tva"],
+              message: 'Use "@gluestack-ui/nativewind-utils/tva" instead.',
+            },
           ],
         },
       ],
