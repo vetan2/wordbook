@@ -1,5 +1,7 @@
 import { type StoryObj, type Meta } from "@storybook/react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
+
+import { Text } from "~/shared/ui/text";
 
 import { Spinner, type SpinnerProps } from "./spinner";
 
@@ -61,7 +63,7 @@ export const Default: Story = {
       {(["sm", "md", "lg"] satisfies SpinnerProps["size"][]).map((size) => (
         <View key={size} className="flex-row items-center gap-2">
           <Text
-            className="w-6 text-right font-pretendard"
+            className="w-6 text-right font-pretendard-medium"
             style={{ fontFamily: "Pretendard-Medium" }}
           >
             {size}

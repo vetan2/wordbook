@@ -112,6 +112,11 @@ export default [
               importNames: ["tva"],
               message: 'Use "@gluestack-ui/nativewind-utils/tva" instead.',
             },
+            {
+              name: "react-native",
+              importNames: ["Text", "TextProps"],
+              message: 'Use from "~/shared/ui" instead.',
+            },
           ],
         },
       ],
@@ -122,6 +127,7 @@ export default [
       ],
 
       "react/no-unescaped-entities": ["error", { forbid: [">", "}"] }],
+      "no-fallthrough": 0,
     },
   },
   {

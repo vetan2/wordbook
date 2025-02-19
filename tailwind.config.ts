@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 import { heroui } from "@heroui/theme";
 import { type Config } from "tailwindcss";
-import plugin from "tailwindcss/plugin";
 import { type DarkModeConfig } from "tailwindcss/types/config";
 
 export default {
@@ -17,53 +16,51 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        pretendard: ["Pretendard-Medium", "Roboto", "sans-serif"],
-        sans: ["Pretendard-Medium", "Roboto", "sans-serif"],
-        roboto: ["Roboto", "sans-serif"],
+        // Korean
+        "pretendard-thin": ["PretendardJP-Thin"],
+        "pretendard-extralight": ["PretendardJP-ExtraLight"],
+        "pretendard-light": ["PretendardJP-Light"],
+        "pretendard-regular": ["PretendardJP-Regular"],
+        "pretendard-medium": ["PretendardJP-Medium"],
+        "pretendard-semibold": ["PretendardJP-SemiBold"],
+        "pretendard-bold": ["PretendardJP-Bold"],
+        "pretendard-extrabold": ["PretendardJP-ExtraBold"],
+        "pretendard-black": ["PretendardJP-Black"],
+
+        // TODO
+        // Japanese
+        // "zen-old-mincho-regular": [
+        //   "ZenOldMincho-Regular",
+        //   "PretendardJP-Regular",
+        //   "Roboto",
+        //   "sans-serif",
+        // ],
+        // "zen-old-mincho-medium": [
+        //   "ZenOldMincho-Medium",
+        //   "PrentendardJP-Medium",
+        //   "Roboto",
+        //   "sans-serif",
+        // ],
+        // "zen-old-mincho-semibold": [
+        //   "ZenOldMincho-SemiBold",
+        //   "PretendardJP-SemiBold",
+        //   "Roboto",
+        //   "sans-serif",
+        // ],
+        // "zen-old-mincho-bold": [
+        //   "ZenOldMincho-Bold",
+        //   "PretendardJP-Bold",
+        //   "Roboto",
+        //   "sans-serif",
+        // ],
+        // "zen-old-mincho-black": [
+        //   "ZenOldMincho-Black",
+        //   "PretendardJP-Black",
+        //   "Roboto",
+        //   "sans-serif",
+        // ],
       },
     },
   },
-  plugins: [
-    heroui(),
-    plugin(({ addUtilities }) => {
-      addUtilities({
-        ".pretendard-thin": {
-          "font-family": "Pretendard-Thin, Roboto, sans-serif",
-          "font-weight": "100",
-        },
-        ".pretendard-extralight": {
-          "font-family": "Pretendard-ExtraLight, Roboto, sans-serif",
-          "font-weight": "200",
-        },
-        ".pretendard-light": {
-          "font-family": "Pretendard-Light, Roboto, sans-serif",
-          "font-weight": "300",
-        },
-        ".pretendard-regular": {
-          "font-family": "Pretendard-Regular, Roboto, sans-serif",
-          "font-weight": "400",
-        },
-        ".pretendard-medium": {
-          "font-family": "Pretendard-Medium, Roboto, sans-serif",
-          "font-weight": "500",
-        },
-        ".pretendard-semibold": {
-          "font-family": "Pretendard-SemiBold, Roboto, sans-serif",
-          "font-weight": "600",
-        },
-        ".pretendard-bold": {
-          "font-family": "Pretendard-Bold, Roboto, sans-serif",
-          "font-weight": "700",
-        },
-        ".pretendard-extrabold": {
-          "font-family": "Pretendard-ExtraBold, Roboto, sans-serif",
-          "font-weight": "800",
-        },
-        ".pretendard-black": {
-          "font-family": "Pretendard-Black, Roboto, sans-serif",
-          "font-weight": "900",
-        },
-      });
-    }),
-  ],
+  plugins: [heroui()],
 } satisfies Config;

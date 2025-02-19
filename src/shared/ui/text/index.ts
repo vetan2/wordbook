@@ -1,1 +1,1 @@
-export { UIText, type UITextProps } from "./text";
+export { Text, type TextProps } from "./text";

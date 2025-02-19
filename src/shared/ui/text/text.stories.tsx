@@ -1,16 +1,22 @@
 import { type StoryObj, type Meta } from "@storybook/react";
 import { View } from "react-native";
 
-import { UIText, type UITextProps } from "./text";
+import { Text, type TextProps } from "./text";
 
-const meta: Meta<typeof UIText> = {
-  title: "UI/Typography/UIText",
-  component: UIText,
+const meta: Meta<typeof Text> = {
+  title: "UI/Text",
+  component: Text,
   argTypes: {
     children: {
       control: {
         type: "text",
       },
+    },
+    font: {
+      control: {
+        type: "select",
+      },
+      options: ["pretendard", "zen-old-mincho"],
     },
     className: {
       control: {
@@ -20,6 +26,7 @@ const meta: Meta<typeof UIText> = {
   },
   args: {
     children: "다람쥐 헌 쳇바퀴에 타고파",
+    font: "pretendard",
   },
 };
 
@@ -42,13 +49,13 @@ export const Default: Story = {
           "bold",
           "extrabold",
           "black",
-        ] satisfies UITextProps["weight"][]
+        ] satisfies TextProps["weight"][]
       ).map((weight) => (
         <View key={weight} className="flex-row gap-2">
-          <UIText className="w-20" weight={weight}>
-            {weight}
-          </UIText>
-          <UIText {...props} weight={weight} />
+          <Text className="w-20" weight={weight}>
+            {weight.charAt(0).toUpperCase() + weight.slice(1)}
+          </Text>
+          <Text {...props} weight={weight} />
         </View>
       ))}
     </View>
