@@ -1,0 +1,73 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+deleted file mode 100644
+index c664e88762a99024fe100c86539832eeda2beee8..0000000000000000000000000000000000000000
+diff --git a/tva/index.js b/tva/index.js
+index b1a57171c8a55743cf735161a7225fac4df483e6..51472bb4889c2740b26efe53df7de7d53427c174 100644
+--- a/tva/index.js
++++ b/tva/index.js
+@@ -23,10 +23,27 @@ config) => {
+         ];
+     }
+     const callback = tv(options, config);
+-    return (inlineProps) => {
++    const component = (inlineProps) => {
+         const { parentVariants: inlineParentVariants = {}, ...variant } = inlineProps;
+         const mergedVariants = deepMergeObjects(inlineParentVariants, variant);
+         return callback({ ...mergedVariants });
+     };
++
++    const getVariantKeys = () => {
++      if (!options.variants || typeof options.variants !== "object") return;
++  
++      return Object.keys(options.variants);
++    };
++  
++    component.variantKeys = getVariantKeys();
++    component.extend = options.extend;
++    component.base = options.base;
++    component.slots = options.slots;
++    component.variants = options.variants;
++    component.defaultVariants = options.defaultVariants;
++    component.compoundSlots = options.compoundSlots;
++    component.compoundVariants = options.compoundVariants;
++
++    return component;
+ };
+ export const tva = tvatemp;
+diff --git a/tva/index.ts b/tva/index.ts
+index b2a988fa374ccdf92cfbe6d4b56556604035adec..c9837a5a6c7d90bdde288cc890ad344c6ad34fac 100644
+--- a/tva/index.ts
++++ b/tva/index.ts
+@@ -70,7 +70,7 @@ const tvatemp = (
+ 
+   const callback = tv(options, config);
+ 
+-  return (inlineProps: any) => {
++  const component = (inlineProps: any) => {
+     const { parentVariants: inlineParentVariants = {}, ...variant } =
+       inlineProps;
+ 
+@@ -78,6 +78,23 @@ const tvatemp = (
+ 
+     return callback({ ...mergedVariants });
+   };
++
++  const getVariantKeys = () => {
++    if (!options.variants || typeof options.variants !== "object") return;
++
++    return Object.keys(options.variants);
++  };
++
++  component.variantKeys = getVariantKeys();
++  component.extend = options.extend;
++  component.base = options.base;
++  component.slots = options.slots;
++  component.variants = options.variants;
++  component.defaultVariants = options.defaultVariants;
++  component.compoundSlots = options.compoundSlots;
++  component.compoundVariants = options.compoundVariants;
++
++  return component;
+ };
+ 
+ export const tva = tvatemp as TVA;

@@ -96,5 +96,10 @@
     "react-test-renderer": "18.3.1",
     "typescript": "^5.7.3"
   },
-  "private": true
+  "private": true,
+  "pnpm": {
+    "patchedDependencies": {
+      "@gluestack-ui/nativewind-utils": "patches/@gluestack-ui__nativewind-utils.patch"
+    }
+  }
 }
